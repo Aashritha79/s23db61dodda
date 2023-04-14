@@ -72,8 +72,10 @@ async function recreateDB(){
  Airlines({airlines_name:"qatar", airlines_seating:'window', price:2675});
  let instance3 = new
  Airlines({airlines_name:"vistara", airlines_seating:'aisle', price:625});
- instance1.save().then( () => {
-  console.log('First object saved');
+
+
+ instance1.save().then( doc => {
+  console.log('First object saved'+doc);
 }).catch( (e) => {
   console.log('There was an error', e.message);
 });
