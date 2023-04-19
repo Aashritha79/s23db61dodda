@@ -8,6 +8,27 @@ a {
 }
 
 .AirlinesAttr {
-  background-color: aquamarine;
+  background-color: #7fffd4;
   width: 120px;
+  color:yellow;
  }
+ .dodda{
+  font-style: italic;
+  padding:10px ;
+  color:red;
+  background-color: green;
+
+ }
+ .b{
+  text-align: center;
+  background-color: blue;
+ }
+ .AirlinesDetail{
+  background-color: blueviolet;
+ }
+ .Airlinesupdate{
+  background-color: green;
+ }
+
+
+

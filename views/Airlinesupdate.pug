@@ -1,21 +1,21 @@
 extends layout
 block content
-    h1= title
+    h1(class='dodda')= title
     - let Airlineid = toShow._id
     - let airlines_name = toShow.airlines_name
-    - let seating = toShow.seating
+    - let airlines_seating = toShow.airlines_seating
     - let price = toShow.price
     div.row(class='mb-2')
         div.mr-1 ID is
         div #{Airlineid}
     - let actionid = "/resource/Airlines/" + Airlineid
-    form(id='AirlinesForm', action= actionid, method="PUT")
+    form(id='AirlinesForm', action= actionid, method="PUT", class="dodda")
         div.form-group
             label.costumeAttr(for='airlines_name') airlines_name
             input#airlines_name(type='text', name='airlines_name', value= airlines_name )
         div.form-group
-            label.costumeAttr(for='size') seating
-            input#seating(type='text', name='size', value= seating )
+            label.costumeAttr(for='airlines_seating') seating
+            input#seating(type='text', name='airlines_seating', value= airlines_seating )
         div.form-group
             label.costumeAttr(for='price')  price
             input#price(type='number', name='price', value= price )
@@ -23,7 +23,7 @@ block content
     script.
         document.forms['AirlineForm'].addEventListener('submit', (event) => {
             event.preventDefault();
-// TODO do something here to show user that form is being submitted
+            // TODO do something here to show user that form is being submitted
             fetch(event.target.action, {
                 method: 'PUT',
                 body: new URLSearchParams(new FormData(event.target)) // event.target is the form
@@ -36,5 +36,4 @@ block content
                 // TODO handle error
                 alert("Update failed " + error )
             });
-}       );
-
+        });
