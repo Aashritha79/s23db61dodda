@@ -13,4 +13,10 @@ const costume_controlers= require('../controllers/airlines');
 var router = express.Router();
 /* GET costumes */
 router.get('/', costume_controlers.airlines_view_all_Page );
+router.get('/detail', costume_controlers.Airlines_view_one_Page);
+router.get('/create', costume_controlers.Airlines_create_Page);
+router.get('/update', costume_controlers.Airlines_update_Page);
+router.get('/delete', costume_controlers.Airlines_delete_Page);
+
+
 module.exports = router;
