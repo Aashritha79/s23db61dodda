@@ -1,20 +1,23 @@
 extends layout
 block content
  h1(class='b')= title
- - let Airlineid = toShow._id
- - let airlines_name = toShow.airlines_name
- - let seating = toShow.seating
- - let price = toShow.price
- div
-    div.row
-        div(class='AirlinesAttr mr-3') Airline ID is:
-        div #{Airlineid}
-    div.row
-        div(class='AirlinesAttr mr-3') airlines_name is:
-        div #{airlines_name}
-    div.row
-        div(class='AirlinesAttr mr-3') seating is:
-        div #{seating}
-    div.row
-        div(class='AirlinesAttr mr-3') price is:
-        div #{price}
+    if(toShow==null)
+        h2 No instance to details 
+    else
+    - let Airlineid = toShow._id
+    - let airlines_name = toShow.airlines_name
+    - let seating = toShow.seating
+    - let price = toShow.price
+    div
+        div.row
+            div(class='AirlinesAttr mr-3') Airline ID is:
+            div #{Airlineid}
+        div.row
+            div(class='AirlinesAttr mr-3') airlines_name is:
+            div #{airlines_name}
+        div.row
+            div(class='AirlinesAttr mr-3') seating is:
+            div #{seating}
+        div.row
+            div(class='AirlinesAttr mr-3') price is:
+            div #{price}
