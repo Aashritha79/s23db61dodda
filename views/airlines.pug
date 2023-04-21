@@ -2,18 +2,19 @@ extends layout
 
 block content
   h1= title
-  - const airlines = ['name','version','price']
+  - let items = results;
+  div(class="container-fluid")
+    div(class="row")
+      each item,index in items
+        - let destination = `dispatch(\"/Airlines/update?id=${item._id}\")`
+        div(class="col-sm-2" class="m-1")
+          h3 #{item.airlines_name}
+          p #{item.airlines_seating}
+          p #{item.price}
+        
+          button.btn( class="btn-primary ml-1", onclick= destination) Update
   script.
-    function buy(index)
-        {
-            alert(`You played game ${index+1}`)
-        }
-  //- - const results = [{ airlines_name: "emirates", seating: 500, price: "1300" },{ name: "southwest", seating: 300, price: "250" },{ name: "delta", seating: 400, price: "1100" }]
-  - let items = results
-  div(class='container-fluid')
-    div(class='row')
-      each result,index in items
-        div(class='col-sm-2' onclick =`buy(${index})`)
-          p airlines Name: #{result.airlines_name}
-          p Seating arragement is : #{result.airlines_seating}
-          p and price is: #{result.price}
+    function dispatch(path){
+      console.log(path);
+      window.location.href=path;
+    }
