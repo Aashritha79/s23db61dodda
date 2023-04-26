@@ -1,16 +1,27 @@
 extends layout
 
-block content
-  h1= title
-  p I am sick today 
+block content 
+  if (!user) 
+    a(href="/login") Login 
+    br 
+    a(href="/register") Register 
+  if (user) 
+    p You are currently logged in as #{user.username} 
+    a(href="/airlines") Take me to Airlines 
+    br 
+    a(href="/logout") Logout
 
-  button(type="button", onclick='doReduce()' class="btn btn-secondary") Press Me
-  div(id="Reduce") Reduce the value
-  script.
-    var count = 20;
-    var change = -1;
-    function doReduce(){
-      count = count + change;
-      change = change-1;
-      document.getElementById("Reduce").innerHTML = "count " + count + " with change " + change;
-    }
+//- block content
+//-   h1= title
+//-   p I am sick today 
+
+//-   button(type="button", onclick='doReduce()' class="btn btn-secondary") Press Me
+//-   div(id="Reduce") Reduce the value
+//-   script.
+//-     var count = 20;
+//-     var change = -1;
+//-     function doReduce(){
+//-       count = count + change;
+//-       change = change-1;
+//-       document.getElementById("Reduce").innerHTML = "count " + count + " with change " + change;
+//-     }
